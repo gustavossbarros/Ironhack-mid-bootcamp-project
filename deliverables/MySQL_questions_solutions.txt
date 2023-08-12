@@ -1,0 +1,147 @@
+-- Mid-Bootcamp Project / Classification
+-- MySQL Questions Solutions
+
+use credit_card_classification;
+
+-- Question 4
+select *
+from credit_card_data;
+
+-- Question 5
+alter table credit_card_data
+drop column q4_balance;
+
+select * 
+from credit_card_data 
+limit 10;
+
+-- Question 6
+select count(distinct customer_number)
+from credit_card_data;
+
+-- Question 7
+-- A
+select distinct offer_accepted
+from credit_card_data;
+
+-- B
+select distinct reward
+from credit_card_data;
+
+-- C
+select distinct mailer_type
+from credit_card_data;
+
+-- D
+select distinct credit_cards_held
+from credit_card_data
+order by 1 asc;
+
+-- E
+select distinct household_size
+from credit_card_data
+order by 1;
+
+-- Question 8
+select customer_number
+from credit_card_data 
+order by average_balance desc
+limit 10;
+
+-- Question 9
+select avg(average_balance) as global_average_balance
+from credit_card_data;
+
+-- Question 10
+-- A
+select income_level, avg(average_balance) as average_balance
+from credit_card_data
+group by 1;
+
+-- B
+select number_bank_accounts_open, avg(average_balance) as average_balance
+from credit_card_data
+group by 1;
+
+-- C
+select credit_rating, avg(credit_cards_held) as avg_number_credit_cards
+from credit_card_data
+group by 1;
+
+-- D
+select credit_cards_held, avg(number_bank_accounts_open) as avg_number_accounts
+from credit_card_data
+group by 1
+order by 1;
+
+select number_bank_accounts_open, avg(credit_cards_held) as avg_number_credit_cards
+from credit_card_data
+group by 1
+order by 1;
+
+select number_bank_accounts_open, count(distinct customer_number)
+from credit_card_data
+group by 1;
+
+select credit_cards_held, count(distinct customer_number)
+from credit_card_data
+group by 1;
+
+-- in the field number_bank_accounts_open the category 3 is under represented,
+-- having almost 50x less records than the most frequent category (1).
+
+-- in the field credit_cards_held the category 4 is under represented,
+-- having almost 16x less records than the most frequent category (2).
+
+-- excluding the under represented categories in each field of the analysis,
+-- aparently there is no correlation between these two fields since the average number of
+-- credit cards held are almost identical for the different number of accounts.
+
+
+-- Question 11
+select *
+from credit_card_data
+where credit_rating in ('medium', 'high') and
+	  credit_cards_held <= 2 and
+	  own_your_home = 'yes' and
+	  household_size >= 3 and
+      offer_accepted = 'yes';
+
+-- Question 12
+select *
+from credit_card_data
+where average_balance < (select avg(average_balance) from credit_card_data);
+
+-- Question 13
+drop view if exists credit_card_classification.Customer_Balance_view1;
+
+create view credit_card_classification.Customer_Balance_view1 as
+select *
+from credit_card_data
+where average_balance < (select avg(average_balance) from credit_card_data);
+
+-- Question 14
+select offer_accepted, count(distinct customer_number) as number_of_customers
+from credit_card_data
+group by 1;
+
+-- Question 15
+select credit_rating, avg(average_balance)
+from credit_card_data
+group by 1;
+
+-- Question 16
+select mailer_type, count(distinct customer_number) as number_of_customers
+from credit_card_data
+group by 1;
+
+-- Question 17
+with cte_q1_balance_rank as (
+	select customer_number, Q1_balance, rank() over(order by Q1_balance) as rank_
+	from credit_card_data
+)
+select *
+from cte_q1_balance_rank cte
+join credit_card_data ccd
+	on ccd.customer_number = cte.customer_number
+where rank_ = 11;
