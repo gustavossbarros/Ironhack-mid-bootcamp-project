@@ -6,7 +6,7 @@ EXPLAIN WORKFLOW
 - DATA CLEANING
 - BALANCING DATA
 
-The folder "deliverables" contains the Jupyter Notebook used for developing the model, and the SQL queries (.txt and .sql). The Tableau Public Workbook can be found on [this link](!!!).
+The folder "deliverables" contains the Jupyter Notebook used for developing the model, and the SQL queries (.txt and .sql). The Tableau Public Workbook can be found on [this link](https://public.tableau.com/app/profile/gustavo.soares.da.silva.barros/viz/IronhackMidBootcampProject/BankAnalysis-CreditCardAcceptance#1).
 
 The folder "tasks" contains a quick guide of how this project has to be executed.
 
