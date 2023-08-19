@@ -12,7 +12,7 @@ Workflow on Jupyter Notebook:
     - Logistic Regression
     - KNN
 ----------------
-The folder "deliverables" contains the Jupyter Notebook used for developing the model, and the SQL queries (.txt and .sql). You can access the Tableau Workbook on [this link](https://public.tableau.com/views/IronhackMidBootcampProject/BankAnalysis-CreditCardAcceptance?:language=en-US&:display_count=n&:origin=viz_share_link).
+The folder "deliverables" contains the Jupyter Notebook used for developing the model, the SQL queries (.txt and .sql), and a quick presentation on Power Point. You can access the Tableau Workbook on [this link](https://public.tableau.com/views/IronhackMidBootcampProject/BankAnalysis-CreditCardAcceptance?:language=en-US&:display_count=n&:origin=viz_share_link).
 
 The folder "tasks" contains the SQL and Tableau questions and some other tips.
 
