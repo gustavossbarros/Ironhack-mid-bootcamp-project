@@ -1,13 +1,19 @@
 # Ironhack-mid-bootcamp-project
 
-The objective of this project is to develop a classification machine learning model to predict if a customer would accept a credit card offer from a bank. Besides Jupyter Notebook, other tools will be used to help understand the caracteristics of the customers: Tableau Public and MySQL Workbench.
+The objective of this project is to develop a classification machine learning model to predict if a customer would accept a credit card offer from a bank. Besides Jupyter Notebook, other tools were used to help understand the customers caracteristics and behavior: Tableau Public and MySQL Workbench.
 
-EXPLAIN WORKFLOW
-- DATA CLEANING
-- BALANCING DATA
+Workflow on Jupyter Notebook:
+  - Data Cleaning
+  - Feature Selection
+  - Upsampling
+  - Pre-processing
+  - Encoding and Scaling Features
+  - Modeling
+    - Logistic Regression
+    - KNN
+----------------
+The folder "deliverables" contains the Jupyter Notebook used for developing the model, and the SQL queries (.txt and .sql). You can access the Tableau Workbook on [this link](https://public.tableau.com/views/IronhackMidBootcampProject/BankAnalysis-CreditCardAcceptance?:language=en-US&:display_count=n&:origin=viz_share_link).
 
-The folder "deliverables" contains the Jupyter Notebook used for developing the model, and the SQL queries (.txt and .sql). The Tableau Public Workbook can be found on [this link](https://public.tableau.com/app/profile/gustavo.soares.da.silva.barros/viz/IronhackMidBootcampProject/BankAnalysis-CreditCardAcceptance#1).
-
-The folder "tasks" contains a quick guide of how this project has to be executed.
+The folder "tasks" contains the SQL and Tableau questions and some other tips.
 
 The folder "files" contains the data used for this project in .csv and .xlsx format.
